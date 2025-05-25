@@ -14,7 +14,7 @@ const CaseStudies = () => {
             For any services involving ski's.
           </p>
           <img 
-            src="src/pictures/Alpine_ski_bindings_01.jpg" 
+            src="/Alpine_ski_bindings_01.jpg" 
             style={{
               maxWidth: '100%',
               maxHeight: '200px',
@@ -36,7 +36,7 @@ const CaseStudies = () => {
             Tricky shuffling game.
           </p>
           <img 
-            src="src/pictures/cardgame.png" 
+            src="/cardgame.png" 
             style={{
               maxWidth: '100%',
               maxHeight: '200px',
@@ -58,7 +58,7 @@ const CaseStudies = () => {
             Personalized shoe selling platform.
           </p>
           <img 
-            src="src/pictures/resell.jpg" 
+            src="/resell.jpg" 
             style={{
               maxWidth: '100%',
               maxHeight: '200px',
@@ -80,7 +80,7 @@ const CaseStudies = () => {
             For all things basketball.
           </p>
           <img 
-            src="src/pictures/basketball.jpg" 
+            src="/basketball.jpg" 
             style={{
               maxWidth: '100%',
               maxHeight: '200px',
