@@ -1,0 +1,29 @@
+@import "./fonts.css";
+.title-container {
+  background: linear-gradient(to right, #dd5757, #3ebe78);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-top: 0;
+  padding: 10px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  opacity: 0.7;
+}
+
+.fancy-name {
+  font-family: 'Satoshi', sans-serif;
+  font-size: 4rem;
+  font-weight: 600;
+  color: #ffffff;
+  text-align: center;
+  letter-spacing: 2px;
+  margin: 0;
+  padding: 10px 20px;
+  position: relative;
+  display: inline-block;
+  
+}
+
+
