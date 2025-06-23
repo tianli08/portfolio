@@ -9,7 +9,7 @@ const CaseStudies = () => {
     <div className="project-gallery">
       <Link to="/skiservice" style={{ textDecoration: 'none', color: 'inherit' }}>
         <div className="project-card">
-          <h2 className="project-heading">Service: SKIBYND</h2>
+          <h2 className="project-heading">Service: SKIBYND (NOT COMPLETE)</h2>
           <p className="project-description">
             For any services involving ski's.
           </p>
@@ -33,10 +33,10 @@ const CaseStudies = () => {
         <div className="project-card">
           <h2 className="project-heading">Play CardGame: Memory Tiles</h2>
           <p className="project-description">
-            Tricky shuffling game.
+            Tiles will light up for a very short duration. Your goal is to click which ones lit up in order to successfully move on to the next section. Run out of time or click on a wrong tile will end the game.
           </p>
           <img 
-            src="/cardgame.png" 
+            src="/cardgame.jpg" 
             style={{
               maxWidth: '100%',
               maxHeight: '200px',
