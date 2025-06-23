@@ -31,7 +31,7 @@ const CaseStudies = () => {
 
       <Link to="/cardgame" style={{ textDecoration: 'none', color: 'inherit' }}>
         <div className="project-card">
-          <h2 className="project-heading">Game: Shufflez</h2>
+          <h2 className="project-heading">Play CardGame: Memory Tiles</h2>
           <p className="project-description">
             Tricky shuffling game.
           </p>
