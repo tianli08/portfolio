@@ -8,13 +8,13 @@ import './basketball.css';
 
 //DATASET Mentioned in the report
 const barChartData = [
-  { name: 'SGA', points: 32.7, assists: 6.4, rebounds: 5.0,  playerImage: '/basketball.jpg', teamImage: '/basketball.jpg'},
-  { name: 'Giannis Antetokounmpo', points: 30.4, assists: 6.5, rebounds: 11.9, playerImage: '/basketball.jpg', teamImage: '/basketball.jpg'},
-  { name: 'Nikola Jokic', points: 29.6, assists: 10.2, rebounds: 12.7, playerImage: '/basketball.jpg', teamImage: '/basketball.jpg'},
-  { name: 'Anthony Edwards', points: 27.6, assists: 4.5, rebounds: 5.7, playerImage: '/basketball.jpg', teamImage: '/basketball.jpg'},
-  { name: 'Jayson Tatum', points: 26.8, assists: 6.0, rebounds: 8.7, playerImage: '/basketball.jpg', teamImage: '/basketball.jpg'},
-  { name: 'Kevin Durant', points: 26.6, assists: 4.2, rebounds: 6.0, playerImage: '/basketball.jpg', teamImage: '/basketball.jpg'},
-  { name: 'Cade Cunningham', points: 26.1, assists: 9.1, rebounds: 6.1, playerImage: '/basketball.jpg', teamImage: '/basketball.jpg' },
+  { name: 'SGA', points: 32.7, assists: 6.4, rebounds: 5.0,  playerImage: '/sga.png', teamImage: '/okc.png'},
+  { name: 'Giannis Antetokounmpo', points: 30.4, assists: 6.5, rebounds: 11.9, playerImage: '/giannis.png', teamImage: '/bucks.png'},
+  { name: 'Nikola Jokic', points: 29.6, assists: 10.2, rebounds: 12.7, playerImage: '/jokic.png', teamImage: '/nuggets.png'},
+  { name: 'Anthony Edwards', points: 27.6, assists: 4.5, rebounds: 5.7, playerImage: '/ant.png', teamImage: '/twolves.png'},
+  { name: 'Jayson Tatum', points: 26.8, assists: 6.0, rebounds: 8.7, playerImage: '/jt.png', teamImage: '/celtics.png'},
+  { name: 'Kevin Durant', points: 26.6, assists: 4.2, rebounds: 6.0, playerImage: '/kd.png', teamImage: '/suns.png'},
+  { name: 'Cade Cunningham', points: 26.1, assists: 9.1, rebounds: 6.1, playerImage: '/cade.png', teamImage: '/pistons.png' },
 ];
 
 const lineChartData = [
