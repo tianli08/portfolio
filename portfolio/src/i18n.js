@@ -37,7 +37,7 @@ i18n
           assists: '助攻',
           rebounds: '篮板',
           player_stats_bar_chart: '球员赛季平均数据',
-          player_stats_line_chart: '球员每场比赛得分趋势（每月',
+          player_stats_line_chart: '球员每场比赛得分趋势（每月)',
           player: '球员',
           stat_value: '数值',
           ppg: '每场得分'
