@@ -9,12 +9,12 @@ const CaseStudies = () => {
     <div className="project-gallery">
       <Link to="/skiservice" style={{ textDecoration: 'none', color: 'inherit' }}>
         <div className="project-card">
-          <h2 className="project-heading">Service: SKIBYND (NOT COMPLETE)</h2>
+          <h2 className="project-heading">Service: SkiPeak</h2>
           <p className="project-description">
             For any services involving ski's.
           </p>
           <img 
-            src="/Alpine_ski_bindings_01.jpg" 
+            src="/skiservice.jpg" 
             style={{
               maxWidth: '100%',
               maxHeight: '200px',

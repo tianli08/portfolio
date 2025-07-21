@@ -1,3 +1,4 @@
+
 .basketball-container {
   position: fixed;
   top: 0;
@@ -9,11 +10,9 @@
   color: #ecf0f1;
   font-family: 'Satoshi', sans-serif;
 }
-
 .content-wrapper {
   padding: 2rem;
 }
-
 .site-header {
   display: flex;
   justify-content: space-between;
@@ -22,19 +21,16 @@
   padding-bottom: 1.5rem;
   margin-bottom: 2rem;
 }
-
 .header-content h1 {
   font-size: 2.5rem;
   margin: 0;
   font-weight: 700;
 }
-
 .header-content p {
   font-size: 1.1rem;
   max-width: 60ch;
   opacity: 0.9;
 }
-
 .language-switcher button {
   background: rgba(236, 240, 241, 0.2);
   border: 1px solid #ecf0f1;
@@ -45,11 +41,9 @@
   border-radius: 5px;
   transition: background-color 0.3s ease;
 }
-
 .language-switcher button:hover {
   background: rgba(236, 240, 241, 0.4);
 }
-
 .chart-section {
   background: rgba(0, 0, 0, 0.2);
   padding: 2rem;
@@ -57,7 +51,6 @@
   margin-bottom: 2rem;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
-
 .chart-section h2 {
   margin-top: 0;
   font-size: 1.8rem;
@@ -65,16 +58,13 @@
   padding-bottom: 0.5rem;
   margin-bottom: 1.5rem;
 }
-
 .controls {
   margin-bottom: 1.5rem;
 }
-
 .controls label {
   font-size: 1rem;
   margin-right: 1rem;
 }
-
 .controls select {
   padding: 0.5rem;
   border-radius: 5px;
@@ -83,7 +73,6 @@
   color: #2c3e50;
   font-size: 1rem;
 }
-
 .custom-tooltip {
   background-color: rgba(44, 62, 80, 0.9);
   border: 1px solid #ecf0f1;
@@ -92,46 +81,37 @@
   color: #ecf0f1;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
-
 .tooltip-header {
   display: flex;
   align-items: center;
   margin-bottom: 0.5rem;
 }
-
 .tooltip-label {
   font-weight: bold;
   margin: 0 0.5rem;
 }
-
 .tooltip-intro {
   margin: 0;
   font-size: 0.9rem;
 }
-
 .tooltip-img-placeholder {
   width: 30px;
   height: 30px;
   background-color: rgba(236, 240, 241, 0.3);
   border: 1px dashed #bdc3c7;
 }
-
 .tooltip-img-placeholder.face {
   border-radius: 50%;
 }
-
 .tooltip-img-placeholder.team {
   border-radius: 4px;
 }
-
 .recharts-text.recharts-cartesian-axis-tick-value {
     fill: #ecf0f1;
 }
-
 .recharts-legend-item-text {
     color: #ecf0f1 !important;
 }
-
 .recharts-cartesian-axis-tick {
     font-size: 11px;
 }

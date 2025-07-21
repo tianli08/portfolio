@@ -1,4 +1,3 @@
-// src/i18n.js
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
@@ -25,7 +24,18 @@ i18n
           player_stats_line_chart: 'Player Points Per Game Trend (Monthly)',
           player: 'Player',
           stat_value: 'Value',
-          ppg: 'PPG'
+          ppg: 'PPG',
+          bar_chart_y_axis: 'Stats',
+          bar_chart_x_axis: 'Player Name',
+          line_chart_y_axis: 'Points Per Game',
+          line_chart_x_axis: 'Month',
+          month_oct: 'Oct',
+          month_nov: 'Nov',
+          month_dec: 'Dec',
+          month_jan: 'Jan',
+          month_feb: 'Feb',
+          month_mar: 'Mar',
+          month_apr: 'Apr'
         }
       },
       zh: {
@@ -40,7 +50,18 @@ i18n
           player_stats_line_chart: '球员每场比赛得分趋势（每月)',
           player: '球员',
           stat_value: '数值',
-          ppg: '每场得分'
+          ppg: '每场得分',
+          bar_chart_y_axis: '统计数据',
+          bar_chart_x_axis: '球员姓名',
+          line_chart_y_axis: '场均得分',
+          line_chart_x_axis: '月份',
+          month_oct: '十月',
+          month_nov: '十一月',
+          month_dec: '十二月',
+          month_jan: '一月',
+          month_feb: '二月',
+          month_mar: '三月',
+          month_apr: '四月'
         }
       }
     }

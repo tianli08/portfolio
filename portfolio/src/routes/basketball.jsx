@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
+
+import React, { useState, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer,
-  LineChart, Line
+  LineChart, Line, Label
 } from 'recharts';
 import './basketball.css';
-
 //DATASET Mentioned in the report
 const barChartData = [
-  { name: 'SGA', points: 32.7, assists: 6.4, rebounds: 5.0,  playerImage: '/sga.png', teamImage: '/okc.png'},
+  { name: 'SGA', points: 32.7, assists: 6.4, rebounds: 5.0, playerImage: '/sga.png', teamImage: '/okc.png'},
   { name: 'Giannis Antetokounmpo', points: 30.4, assists: 6.5, rebounds: 11.9, playerImage: '/giannis.png', teamImage: '/bucks.png'},
   { name: 'Nikola Jokic', points: 29.6, assists: 10.2, rebounds: 12.7, playerImage: '/jokic.png', teamImage: '/nuggets.png'},
   { name: 'Anthony Edwards', points: 27.6, assists: 4.5, rebounds: 5.7, playerImage: '/ant.png', teamImage: '/twolves.png'},
@@ -16,25 +16,21 @@ const barChartData = [
   { name: 'Kevin Durant', points: 26.6, assists: 4.2, rebounds: 6.0, playerImage: '/kd.png', teamImage: '/suns.png'},
   { name: 'Cade Cunningham', points: 26.1, assists: 9.1, rebounds: 6.1, playerImage: '/cade.png', teamImage: '/pistons.png' },
 ];
-
-const lineChartData = [
-  { month: 'Oct', 'SGA': 26.0, 'Giannis Antetokounmpo': 30.4, 'Nikola Jokic': 31.5, 'Anthony Edwards': 30.0, 'Jayson Tatum': 30.2, 'Kevin Durant': 26.8, 'Cade Cunningham': 25.6 },
-  { month: 'Nov', 'SGA': 30.9, 'Giannis Antetokounmpo': 34.0, 'Nikola Jokic': 29.0, 'Anthony Edwards': 27.1, 'Jayson Tatum': 28.2, 'Kevin Durant': 26.9, 'Cade Cunningham': 22.7 },
-  { month: 'Dec', 'SGA': 33.3, 'Giannis Antetokounmpo': 31.9, 'Nikola Jokic': 32.2, 'Anthony Edwards': 20.5, 'Jayson Tatum': 27.5, 'Kevin Durant': 28.8, 'Cade Cunningham': 24.8 },
-  { month: 'Jan', 'SGA': 35.6, 'Giannis Antetokounmpo': 30.5, 'Nikola Jokic': 27.0, 'Anthony Edwards': 30.3, 'Jayson Tatum': 23.6, 'Kevin Durant': 26.1, 'Cade Cunningham': 27.6 },
-  { month: 'Feb', 'SGA': 31.7, 'Giannis Antetokounmpo': 24.8, 'Nikola Jokic': 27.3, 'Anthony Edwards': 30.7, 'Jayson Tatum': 28.3, 'Kevin Durant': 25.5, 'Cade Cunningham': 25.9 },
-  { month: 'Mar', 'SGA': 34.7, 'Giannis Antetokounmpo': 28.3, 'Nikola Jokic': 30.0, 'Anthony Edwards': 26.6, 'Jayson Tatum': 27.9, 'Kevin Durant': 26.1, 'Cade Cunningham': 27.3 },
-  { month: 'Apr', 'SGA': 30.8, 'Giannis Antetokounmpo': 31.8, 'Nikola Jokic': 33.2, 'Anthony Edwards': 31.4, 'Jayson Tatum': 21.8, 'Kevin Durant': 0, 'Cade Cunningham': 33.0 },
+const rawLineChartData = [
+  { monthKey: 'month_oct', 'SGA': 26.0, 'Giannis Antetokounmpo': 30.4, 'Nikola Jokic': 31.5, 'Anthony Edwards': 30.0, 'Jayson Tatum': 30.2, 'Kevin Durant': 26.8, 'Cade Cunningham': 25.6 },
+  { monthKey: 'month_nov', 'SGA': 30.9, 'Giannis Antetokounmpo': 34.0, 'Nikola Jokic': 29.0, 'Anthony Edwards': 27.1, 'Jayson Tatum': 28.2, 'Kevin Durant': 26.9, 'Cade Cunningham': 22.7 },
+  { monthKey: 'month_dec', 'SGA': 33.3, 'Giannis Antetokounmpo': 31.9, 'Nikola Jokic': 32.2, 'Anthony Edwards': 20.5, 'Jayson Tatum': 27.5, 'Kevin Durant': 28.8, 'Cade Cunningham': 24.8 },
+  { monthKey: 'month_jan', 'SGA': 35.6, 'Giannis Antetokounmpo': 30.5, 'Nikola Jokic': 27.0, 'Anthony Edwards': 30.3, 'Jayson Tatum': 23.6, 'Kevin Durant': 26.1, 'Cade Cunningham': 27.6 },
+  { monthKey: 'month_feb', 'SGA': 31.7, 'Giannis Antetokounmpo': 24.8, 'Nikola Jokic': 27.3, 'Anthony Edwards': 30.7, 'Jayson Tatum': 28.3, 'Kevin Durant': 25.5, 'Cade Cunningham': 25.9 },
+  { monthKey: 'month_mar', 'SGA': 34.7, 'Giannis Antetokounmpo': 28.3, 'Nikola Jokic': 30.0, 'Anthony Edwards': 26.6, 'Jayson Tatum': 27.9, 'Kevin Durant': 26.1, 'Cade Cunningham': 27.3 },
+  { monthKey: 'month_apr', 'SGA': 30.8, 'Giannis Antetokounmpo': 31.8, 'Nikola Jokic': 33.2, 'Anthony Edwards': 31.4, 'Jayson Tatum': 21.8, 'Kevin Durant': 0, 'Cade Cunningham': 33.0 },
 ];
-
 const playerNames = barChartData.map(p => p.name);
 const lineColors = ['#8884d8', '#82ca9d', '#ff58f9ff', '#ff8042', '#0088FE', '#00C49F', '#FFBB28'];
-
 //Tooltip Component
 const CustomTooltip = ({ active, payload, label, statType, isLineChart, hoveredPlayer }) => {
   if (active && payload && payload.length) {
     let dataToShow, playerName, playerData;
-
     if (isLineChart) {
       if (!hoveredPlayer) return null;
       dataToShow = payload.find(p => p.name === hoveredPlayer);
@@ -46,10 +42,8 @@ const CustomTooltip = ({ active, payload, label, statType, isLineChart, hoveredP
     }
     
     playerData = barChartData.find(p => p.name === playerName);
-    if (!playerData) return null; //Don't render if we can't find player data
-
+    if (!playerData) return null;
     const statValue = dataToShow.value;
-
     return (
       <div className="custom-tooltip">
         <div className="tooltip-header">
@@ -63,23 +57,26 @@ const CustomTooltip = ({ active, payload, label, statType, isLineChart, hoveredP
   }
   return null;
 };
-
 //MAIN
 const Basketball = () => {
   const { t, i18n } = useTranslation();
   const [selectedStat, setSelectedStat] = useState('points');
   const [hoveredPlayer, setHoveredPlayer] = useState(null);
-
   const statColors = {
     points: '#ca4242',
     assists: '#4287ca',
     rebounds: '#42ca7b',
   };
-
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
   };
-
+  
+  const lineChartData = useMemo(() => {
+    return rawLineChartData.map(data => ({
+      ...data,
+      month: t(data.monthKey)
+    }));
+  }, [i18n.language, t]);
   return (
     <div className="basketball-container">
       <div className="content-wrapper">
@@ -93,7 +90,6 @@ const Basketball = () => {
             <button onClick={() => changeLanguage('zh')}>中文</button>
           </div>
         </header>
-
         <main>
           <section className="chart-section">
             <h2>{t('player_stats_bar_chart')}</h2>
@@ -106,27 +102,34 @@ const Basketball = () => {
               </select>
             </div>
             <ResponsiveContainer width="100%" height={400}>
-              <BarChart data={barChartData} margin={{ top: 20, right: 30, left: 20, bottom: 70 }}>
+              <BarChart data={barChartData} margin={{ top: 20, right: 30, left: 30, bottom: 70 }}>
                 <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="name" interval={0} angle={-30} textAnchor="end" />
-                <YAxis />
+                <XAxis dataKey="name" interval={0} angle={-30} textAnchor="end">
+                  <Label value={t('bar_chart_x_axis')} offset={-55} position="insideBottom" fill="#ecf0f1" />
+                </XAxis>
+                <YAxis>
+                  <Label value={t('bar_chart_y_axis')} angle={-90} position="insideLeft" style={{ textAnchor: 'middle', fill: '#ecf0f1' }} />
+                </YAxis>
                 <Tooltip content={<CustomTooltip statType={t(selectedStat)} />} cursor={{fill: 'rgba(255, 255, 255, 0.1)'}} />
                 <Bar dataKey={selectedStat} fill={statColors[selectedStat]} />
               </BarChart>
             </ResponsiveContainer>
           </section>
-
           <section className="chart-section">
             <h2>{t('player_stats_line_chart')}</h2>
             <ResponsiveContainer width="100%" height={400}>
               <LineChart 
                 data={lineChartData} 
-                margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
+                margin={{ top: 20, right: 30, left: 30, bottom: -10 }}
                 onMouseLeave={() => setHoveredPlayer(null)}
               >
                 <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="month" />
-                <YAxis />
+                <XAxis dataKey="month" >
+                  <Label value={t('line_chart_x_axis')} offset={-5} position="insideBottom" fill="#ecf0f1" />
+                </XAxis>
+                <YAxis>
+                  <Label value={t('line_chart_y_axis')} angle={-90} position="insideLeft" style={{ textAnchor: 'middle', fill: '#ecf0f1' }} />
+                </YAxis>
                 <Tooltip 
                     content={<CustomTooltip statType={t('ppg')} isLineChart={true} hoveredPlayer={hoveredPlayer} />}
                     cursor={{ stroke: '#ecf0f1', strokeDasharray: '3 3' }}
@@ -152,5 +155,4 @@ const Basketball = () => {
     </div>
   );
 };
-
 export default Basketball;
